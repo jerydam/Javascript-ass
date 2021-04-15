@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="multitable.css">
+    <link rel="stylesheet" href="bootstrap-4.6.0-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="bootstrap-4.6.0-dist/js/bootstrap.js">
+</head>
+<body class="bg-primary">
+    <center><table  class="">
+         <tr>
+             <td><input type="number" name="" id="trow" placeholder="ROWS" class="p-3"></td>
+             <td><input type="number" name="" id="tcolumn" placeholder="COLUMN" class="p-3"></td>
+         </tr>
+         <tr><td colspan="2" align="center"><button onclick="view()" class="btn btn-dark px-4 ">DISPLAY</button></td></tr>
+         <tr><td colspan="2" align="center"><select name="" id="sel"  >
+             <option value="*"  >multiplication</option>
+                          <option value="+" >Addition</option>
+             <option value="-" >substraction</option>
+             <option value="/" >division</option>
+         </select></td></tr>
+     </table></center>
+    <center> <div id="tab" class="bg-primary" ></div></center>
+
+     <script>
+         var input=trow.value
+         var input2=tcolumn.value
+         var sum=sel.value;
+
+ 
+       function view(){
+        var sum=sel.value;
+          var tabs ="<table border='1' class='bg-info'>"
+          tabs+="<tr>"
+            for (i=1; i<=tcolumn.value; i++){
+               
+                tabs+="<td class='text-light'>"
+              for (j=1; j<=trow.value; j++ ){
+                 var ev=    eval(i+sum+j)
+                if ( ev % 1 !==0) {
+                    var ev=   parseFloat( eval(i+sum+j)).toFixed(2)
+                }
+            tabs += i+sum+j+ "=" + ev +"<br>"
+              } 
+
+            
+       
+            tabs+="</td>"
+           }
+           tabs+="</tr>"
+            tabs+="</table>"
+        tab.innerHTML = tabs
+
+    
+
+
+
+
+     
+        }
+
+        //    v1=0
+        //    v2=0
+        //   
+       
+     </script>
+</body>
+</html>
